@@ -34,6 +34,7 @@ class Livro(models.Model):
     quantidade = models.IntegerField(default=0,  null=True, blank=True)
     preco = models.DecimalField(
         max_digits=7, decimal_places=2, default=0, null=True, blank=True)
+    autores = models.ManyToManyField(Autor, related_name="livros")
 
     categoria = models.ForeignKey(
         Categoria, on_delete=models.PROTECT, related_name="livros")
